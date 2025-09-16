@@ -31,7 +31,7 @@ public class Rubrica {
             for (String key : keys) {
                 if (rubrica.get(key) == numTel) name = key;
             }
-            if (name == "") throw new Exception("Nope");
+            if (name.isEmpty()) throw new Exception("Nope");
             return "Il nome cercato è " + name;
         } catch (Exception e) {
             return "Il numero selezionato non corrisponde a nessun numero";
