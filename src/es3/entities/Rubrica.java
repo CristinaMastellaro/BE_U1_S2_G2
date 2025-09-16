@@ -15,21 +15,38 @@ public class Rubrica {
     }
 
     public void deleteContact(String name) {
-        rubrica.remove(name);
+        try {
+            if (rubrica.get(name) == null) throw new Exception("Nope");
+            else rubrica.remove(name);
+            System.out.println("Numero cancellato!");
+        } catch (Exception e) {
+            System.out.println("Numero non trovato");
+        }
     }
 
     public String ricercaNome(int numTel) {
-        Set<String> keys = rubrica.keySet();
-        String name = "";
-        for (String key : keys) {
-            if (rubrica.get(key) == numTel) name = key;
+        try {
+            Set<String> keys = rubrica.keySet();
+            String name = "";
+            for (String key : keys) {
+                if (rubrica.get(key) == numTel) name = key;
+            }
+            if (name == "") throw new Exception("Nope");
+            return "Il nome cercato è " + name;
+        } catch (Exception e) {
+            return "Il numero selezionato non corrisponde a nessun numero";
         }
-        if (name == "") return "Il numero selezionato non corrisponde a nessun numero";
-        else return name;
     }
 
-    public int numTel(String name) {
-        return rubrica.get(name);
+    public void numTel(String name) {
+        try {
+            int numTel = 0;
+            if (rubrica.get(name) == null) throw new Exception("Nope");
+            else numTel = rubrica.get(name);
+            System.out.println("Il numero è " + numTel);
+        } catch (Exception e) {
+            System.out.println("Il nome non corrisponde a nessun numero telefonico");
+        }
     }
 
     public void stampaRubrica() {
