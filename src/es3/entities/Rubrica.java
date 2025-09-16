@@ -20,7 +20,7 @@ public class Rubrica {
             else rubrica.remove(name);
             System.out.println("Numero cancellato!");
         } catch (Exception e) {
-            System.out.println("Numero non trovato");
+            System.err.println("Numero non trovato");
         }
     }
 
@@ -45,7 +45,7 @@ public class Rubrica {
             else numTel = rubrica.get(name);
             System.out.println("Il numero è " + numTel);
         } catch (Exception e) {
-            System.out.println("Il nome non corrisponde a nessun numero telefonico");
+            System.err.println("Il nome non corrisponde a nessun numero telefonico");
         }
     }
 

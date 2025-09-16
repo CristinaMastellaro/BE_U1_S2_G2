@@ -1,6 +1,7 @@
 package es2;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -37,6 +38,7 @@ public class Main {
         for (int i = 0; i < num; i++) {
             list.add(r.nextInt(0, 100));
         }
+        Collections.sort(list);
         return list;
     }
 
@@ -48,6 +50,15 @@ public class Main {
     }
 
     public static ArrayList<Integer> evenOrOdd(ArrayList<Integer> list, boolean even) {
+        // Sennò si poteva usare il booleano per scegliere da quale numero inizia i... C'é:
+        /*
+        ArrayList<Integer> newList = new ArrayList<>();
+        int start = even ? 1 : 0;
+        for (int i = start; i < list.size(); i+2) {
+            newList.add(list.get(i));
+        }
+        return newList;
+        * */
         ArrayList<Integer> newListEven = new ArrayList<>();
         ArrayList<Integer> newListOdd = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
